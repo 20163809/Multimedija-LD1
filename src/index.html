@@ -72,7 +72,15 @@
       video.src("https://mnmedias.api.telequebec.tv/m3u8/29880.m3u8");
     })
 	
-	
+	document.getElementById('shuffle').addEventListener('click', function() {
+        var x = Math.floor((Math.random() * 3) + 1);
+		if (x == 1){
+			document.getElementById('loadOrig').click();}
+		if (x == 2){
+			document.getElementById('loadFirst').click();}
+		if (x == 3){
+			document.getElementById('loadSecond').click();}
+    })
 	</script>
 </body>
 </html>
