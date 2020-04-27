@@ -31,5 +31,28 @@
 	<button id="forward5">Jump to 5 sec forward</button>
 	<button id="back5">Jump to 5 sec backwards</button>	
 	
+	<script>
+    var video = videojs('video');
+    
+    document.getElementById('play').addEventListener('click', function() {
+      video.play();
+    })
+
+    document.getElementById('pause').addEventListener('click', function() {
+      video.pause();
+    })
+
+    document.getElementById('stop').addEventListener('click', function() {
+      video.reset();
+    })
+
+    document.getElementById('forward5').addEventListener('click', function() {
+      video.currentTime(video.currentTime() + 5); 
+    })
+
+    document.getElementById('back5').addEventListener('click', function() {
+      video.currentTime(video.currentTime() - 5);
+    })
+	</script>
 </body>
 </html>
