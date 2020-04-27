@@ -25,5 +25,62 @@
     <source src="https://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8" type="application/x-mpegURL" />
   </video>
   
+  	<button id="play">Play</button>
+	<button id="pause">Pause</button>
+	<button id="stop">Stop</button>
+	<button id="forward5">Jump to 5 sec forward</button>
+	<button id="back5">Jump to 5 sec backwards</button>	
+	
+	<p>Playlist</p>
+	<input type="text" name="url1" size="100" value="https://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8"><button id="loadOrig">Load</button><br>
+	<input type="text" name="url1" size="100" value="https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8"><button id="loadFirst">Load</button><br>
+	<input type="text" name="url2" size="100" value="https://mnmedias.api.telequebec.tv/m3u8/29880.m3u8"><button id="loadSecond">Load</button><br>
+	<button id="shuffle">Shuffle</button>
+  
+	<script>
+    var video = videojs('video');
+    
+    document.getElementById('play').addEventListener('click', function() {
+      video.play();
+    })
+
+    document.getElementById('pause').addEventListener('click', function() {
+      video.pause();
+    })
+
+    document.getElementById('stop').addEventListener('click', function() {
+      video.reset();
+    })
+
+    document.getElementById('forward5').addEventListener('click', function() {
+      video.currentTime(video.currentTime() + 5); 
+    })
+
+    document.getElementById('back5').addEventListener('click', function() {
+      video.currentTime(video.currentTime() - 5);
+    })
+	
+	document.getElementById('loadOrig').addEventListener('click', function() {
+      video.src("https://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8");
+	  })
+	  
+    document.getElementById('loadFirst').addEventListener('click', function() {
+      video.src("https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8");
+	  })
+
+    document.getElementById('loadSecond').addEventListener('click', function() {
+      video.src("https://mnmedias.api.telequebec.tv/m3u8/29880.m3u8");
+    })
+	
+	document.getElementById('shuffle').addEventListener('click', function() {
+        var x = Math.floor((Math.random() * 3) + 1);
+		if (x == 1){
+			document.getElementById('loadOrig').click();}
+		if (x == 2){
+			document.getElementById('loadFirst').click();}
+		if (x == 3){
+			document.getElementById('loadSecond').click();}
+    })
+	</script>
 </body>
 </html>
